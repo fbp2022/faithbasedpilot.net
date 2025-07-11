@@ -4,19 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Hangar | Faith Based Pilot</title>
- <style>
+  <style>
     body {
-      background-color: #121212;
+      background: #121212 url('images/fulllogo_transparent.png') no-repeat center center fixed;
+      background-size: contain;
       color: #ffffff;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-    }
-    nav {
-      background-color: #1e1e1e;
-      padding: 1rem;
       text-align: center;
     }
+
+    nav {
+      background-color: rgba(30, 30, 30, 0.9);  /* Slight transparency over the background */
+      padding: 1rem;
+    }
+
     .nav-links {
       display: flex;
       flex-wrap: nowrap;
@@ -24,6 +27,7 @@
       overflow-x: auto;
       gap: 1rem;
     }
+
     nav a {
       color: #ffffff;
       text-decoration: none;
@@ -31,37 +35,37 @@
       font-size: 1rem;
       white-space: nowrap;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
+
     .container {
-      max-width: 800px;
+      width: 90%;
+      max-width: 1200px;
       margin: 5rem auto;
       padding: 1rem;
-      text-align: center;
+      background-color: rgba(0, 0, 0, 0.6); /* Optional: darken content area slightly */
+      border-radius: 8px;
     }
+
     h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
+
     p {
       font-size: 1.1rem;
       line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
     }
+
     @media (max-width: 600px) {
       nav a {
         font-size: 0.9rem;
       }
     }
-   body {
-  background: #121212 url('images/fulllogo_transparent.png') no-repeat center center fixed;
-  background-size: contain;
-  color: #ffffff;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
   </style>
 </head>
 <body>
