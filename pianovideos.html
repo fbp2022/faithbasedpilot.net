@@ -3,25 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Faith Based Pilot | Piano Videos</title>
+  <title>Piano Videos | Faith Based Pilot</title>
   <style>
     body {
-      background-color: #000000;
-      color: #cccccc;
+      background-color: #121212;
+      color: #ffffff;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
     nav {
-      background-color: #111111;
+      background-color: #1e1e1e;
       padding: 1rem;
       text-align: center;
     }
+    .nav-links {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      overflow-x: auto;
+      gap: 1rem;
+    }
     nav a {
-      color: #cccccc;
-      margin: 0 1rem;
+      color: #ffffff;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1rem;
+      white-space: nowrap;
     }
     nav a:hover {
       text-decoration: underline;
@@ -33,29 +41,35 @@
       text-align: center;
     }
     h1 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
-    iframe {
-      width: 100%;
-      height: 450px;
-      border: none;
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    @media (max-width: 600px) {
+      nav a {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="hangar.html">The Hangar</a>
-    <a href="flightvideos.html">Flight Videos</a>
-    <a href="pianovideos.html">Piano Videos</a>
+    <div class="nav-links">
+      <a href="hangar.html">The Hangar</a>
+      <a href="flightvideos.html">Flight Videos</a>
+      <a href="pianovideos.html">Piano Videos</a>
+    </div>
   </nav>
 
   <div class="container">
     <h1>Piano Videos</h1>
-    <p>Just a bonus section to share something a little different—enjoy the music.</p>
-
-    <iframe src="https://www.youtube.com/embed/0I2A_xI4ZTc" allowfullscreen></iframe>
+    <p>Enjoy original performances, recordings, and creative music content.</p>
+    <!-- Example video embed -->
+    <!-- <iframe src="your-piano-video-link" width="100%" height="315" frameborder="0" allowfullscreen></iframe> -->
   </div>
 
 </body>
