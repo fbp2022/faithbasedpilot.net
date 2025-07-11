@@ -11,12 +11,12 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      text-align: center; /* Centers text on mobile */
     }
 
     nav {
       background-color: #1e1e1e;
       padding: 1rem;
-      text-align: center;
     }
 
     .nav-links {
@@ -43,7 +43,6 @@
       max-width: 1200px;
       margin: 5rem auto;
       padding: 1rem;
-      text-align: center;
     }
 
     h1 {
@@ -54,19 +53,25 @@
     p {
       font-size: 1.1rem;
       line-height: 1.6;
+      margin: 0 auto 2rem auto;
+      max-width: 700px;
     }
 
     .video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
       gap: 2rem;
+      justify-items: center; /* Centers each iframe horizontally */
       margin-top: 2rem;
     }
 
     iframe {
       width: 100%;
+      max-width: 560px;  /* Optional: caps video width on very large screens */
       height: 315px;
       border: none;
+      display: block;
+      margin: 0 auto;  /* Mobile centering */
     }
 
     @media (max-width: 600px) {
