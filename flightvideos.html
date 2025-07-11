@@ -7,7 +7,7 @@
   <style>
     body {
       background: #121212 url('images/fulllogo_transparent.png') no-repeat center center fixed;
-      background-size: contain;
+      background-size: cover;
       color: #ffffff;
       font-family: Arial, sans-serif;
       margin: 0;
@@ -40,25 +40,18 @@
       text-decoration: underline;
     }
 
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 5rem auto;
-      padding: 1rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 8px;
-    }
-
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 3rem;
+      margin-top: 5rem;
+      margin-bottom: 1.5rem;
     }
 
     p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      max-width: 800px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      max-width: 900px;
       margin: 0 auto 2rem auto;
+      padding: 0 1rem;
     }
 
     .video-grid {
@@ -66,7 +59,8 @@
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
       gap: 2rem;
       justify-items: center;
-      margin-top: 2rem;
+      margin: 2rem auto 5rem auto;
+      width: 90%;
     }
 
     iframe {
@@ -80,6 +74,12 @@
       nav a {
         font-size: 0.9rem;
       }
+
+      h1 {
+        font-size: 2rem;
+        margin-top: 3rem;
+      }
+
       iframe {
         height: 225px;
       }
@@ -96,11 +96,11 @@
     </div>
   </nav>
 
-  <div class="container">
-    <h1>Flight Videos</h1>
-    
-    <div class="video-grid">
-      <iframe src="https://www.youtube.com/embed/WLIhlz3Emmc" allowfullscreen></iframe>
+  <h1>Flight Videos</h1>
+  <p>Watch flight training, general aviation, and fun flying content right here.</p>
+
+  <div class="video-grid">
+    <iframe src="https://www.youtube.com/embed/WLIhlz3Emmc" allowfullscreen></iframe>
       <iframe src="https://www.youtube.com/embed/fSJaUtR52-Q" allowfullscreen></iframe>
       <iframe src="https://www.youtube.com/embed/Nk3j-TbhiHQ" allowfullscreen></iframe>
       <iframe src="https://www.youtube.com/embed/38XvfqB7MmI" allowfullscreen></iframe>
@@ -109,8 +109,6 @@
       <iframe src="https://www.youtube.com/embed/Su31pt7pRTY" allowfullscreen></iframe>
       <iframe src="https://www.youtube.com/embed/AebF5_v9oAY" allowfullscreen></iframe>
       <iframe src="https://www.youtube.com/embed/PdTpJYXp8Og" allowfullscreen></iframe>
-    </div>
-
   </div>
 
 </body>
