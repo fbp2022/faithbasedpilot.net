@@ -11,12 +11,14 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      text-align: center;
     }
+
     nav {
       background-color: #1e1e1e;
       padding: 1rem;
-      text-align: center;
     }
+
     .nav-links {
       display: flex;
       flex-wrap: nowrap;
@@ -24,6 +26,7 @@
       overflow-x: auto;
       gap: 1rem;
     }
+
     nav a {
       color: #ffffff;
       text-decoration: none;
@@ -31,26 +34,45 @@
       font-size: 1rem;
       white-space: nowrap;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
+
     .container {
-      max-width: 800px;
+      width: 90%;
+      max-width: 1200px;
       margin: 5rem auto;
       padding: 1rem;
-      text-align: center;
     }
+
     h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
+
     p {
       font-size: 1.1rem;
       line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
     }
+
+    .single-video {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border: none;
+      display: block;
+      margin: 2rem auto;
+    }
+
     @media (max-width: 600px) {
       nav a {
         font-size: 0.9rem;
+      }
+      .single-video {
+        height: 225px;  /* Scales video height for small screens */
       }
     }
   </style>
@@ -65,15 +87,12 @@
     </div>
   </nav>
 
- <div class="container">
-  <h1>Piano Videos</h1>
-  <p>Enjoy original performances, recordings, and creative music content.</p>
+  <div class="container">
+    <h1>Piano Videos</h1>
+    <p>Enjoy original performances, recordings, and creative music content.</p>
 
-  <div class="video-grid">
-    <iframe src="https://www.youtube.com/embed/0I2A_xI4ZTc" allowfullscreen></iframe>
+    <iframe class="single-video" src="https://www.youtube.com/embed/0I2A_xI4ZTc" allowfullscreen></iframe>
   </div>
-</div>
-
 
 </body>
 </html>
