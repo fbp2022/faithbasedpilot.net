@@ -17,11 +17,19 @@
       padding: 1rem;
       text-align: center;
     }
+    .nav-links {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      overflow-x: auto;
+      gap: 1rem;
+    }
     nav a {
       color: #ffffff;
-      margin: 0 1rem;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1rem;
+      white-space: nowrap;
     }
     nav a:hover {
       text-decoration: underline;
@@ -40,14 +48,21 @@
       font-size: 1.1rem;
       line-height: 1.6;
     }
+    @media (max-width: 600px) {
+      nav a {
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="hangar.html">The Hangar</a>
-    <a href="flightvideos.html">Flight Videos</a>
-    <a href="pianovideos.html">Piano Videos</a>
+    <div class="nav-links">
+      <a href="hangar.html">The Hangar</a>
+      <a href="flightvideos.html">Flight Videos</a>
+      <a href="pianovideos.html">Piano Videos</a>
+    </div>
   </nav>
 
   <div class="container">
@@ -57,7 +72,7 @@
       Unlike FaithBasedPilot.org, which focuses on ministry, devotions, and faith-based writing, this site is designed to showcase videos, podcasts, and creative media centered around flying, training, and the love of aviation.
     </p>
     <p>
-      This separation allows each site to serve its unique purpose without overlap: the **.org** remains focused on faith and study, while the **.net** provides a dedicated space for aviation adventures, personal reflections, and additional content like piano performances.
+      This separation allows each site to serve its unique purpose without overlap: the <strong>.org</strong> remains focused on faith and study, while the <strong>.net</strong> provides a dedicated space for aviation adventures, personal reflections, and additional content like piano performances.
     </p>
     <p>
       Thank you for visiting. Use the navigation above to explore flight videos or enjoy some bonus piano content.
