@@ -5,94 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flight Videos | Faith Based Pilot</title>
   <style>
- body {
-  background-color: #121212;
-  color: #ffffff;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;  /* Centers text by default */
-}
-
-nav {
-  background-color: #1e1e1e;
-  padding: 1rem;
-}
-
-.nav-links {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  overflow-x: auto;
-  gap: 1rem;
-}
-
-nav a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1rem;
-  white-space: nowrap;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-.container {
-  width: 90%;           /* NEW: allows more breathing room on mobile */
-  max-width: 1400px;     /* Wider max for desktop */
-  margin: 5rem auto;
-  padding: 1rem;
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 800px;       /* Prevents super long lines on desktop */
-  margin: 0 auto 2rem auto;
-}
-
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));  /* NEW: auto-adapt to narrow screens */
-  gap: 2rem;
-  margin-top: 2rem;
-  align-items: center;
-  justify-items: center;   /* Fixes centering */
-}
-
-iframe {
-  width: 100%;
-  max-width: 640px;  /* NEW: sets the max width so it doesn’t overflow */
-  height: 360px;
-  border: none;
-  display: block;
-  margin: 0 auto;
-}
-
-@media (max-width: 600px) {
-  nav a {
-    font-size: 0.9rem;
-  }
-  iframe {
-    height: 200px;  /* Optional: shorter video height on small screens */
-  }
-}
     body {
-  background: #121212 url('images/fulllogo_transparent.png') no-repeat center center fixed;
-  background-size: contain;
-  color: #ffffff;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
+      background: #121212 url('images/fulllogo_transparent.png') no-repeat center center fixed;
+      background-size: contain;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: rgba(30, 30, 30, 0.9);
+      padding: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      overflow-x: auto;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 5rem auto;
+      padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 8px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+      justify-items: center;
+      margin-top: 2rem;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border: none;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        font-size: 0.9rem;
+      }
+      iframe {
+        height: 225px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -107,8 +98,7 @@ iframe {
 
   <div class="container">
     <h1>Flight Videos</h1>
-   
-
+    
     <div class="video-grid">
       <iframe src="https://www.youtube.com/embed/WLIhlz3Emmc" allowfullscreen></iframe>
       <iframe src="https://www.youtube.com/embed/fSJaUtR52-Q" allowfullscreen></iframe>
