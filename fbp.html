@@ -8,8 +8,8 @@
   <style>
     :root {
       --accent: #4da3ff;
-      --border-dark: #333;
-      --panel-dark: #151515;
+      --rule-dark: rgba(255,255,255,.08);
+      --rule-light: #e6e6e6;
     }
 
     /* Base */
@@ -41,49 +41,28 @@
     nav a { color: inherit; text-decoration: none; font-weight: bold; font-size: 1rem; }
     */
 
-    /* Theme toggle */
+    /* Theme toggle (uses your logo) */
     #themeToggle {
       width: 40px; height: 40px; cursor: pointer;
-      position: absolute; right: 1.5rem; top: 1rem;
+      position: absolute; right: 1.25rem; top: .9rem;
       object-fit: contain;
       filter: invert(1);
       transition: filter .3s ease;
     }
     body.light #themeToggle { filter: invert(0); }
 
-    /* Headings / layout */
+    /* Typography & layout */
     h1 { text-align: center; margin: 2rem 0 .25rem; }
     .lead { text-align: center; margin: 0 0 1.5rem; color: var(--accent); font-weight: bold; }
 
     section { padding: 2.25rem 0; border-top: 1px solid transparent; }
-    section + section { border-top-color: rgba(255,255,255,.07); }
-    body.light section + section { border-top-color: #e6e6e6; }
+    section + section { border-top-color: var(--rule-dark); }
+    body.light section + section { border-top-color: var(--rule-light); }
 
     p { line-height: 1.65; margin: .6rem 0; }
-
-    /* Images */
-    .figure {
-      margin: 0 auto 1rem;
-      width: 100%;
-      max-width: 720px;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 6px 22px rgba(0,0,0,.35);
-      border: 1px solid rgba(255,255,255,.06);
-    }
-    .figure img {
-      display: block;
-      width: 100%;
-      height: auto;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      background:#000;
-    }
-    body.light .figure { border-color: #e9e9e9; box-shadow: 0 8px 20px rgba(0,0,0,.12); }
-
     .notice {
-      background: var(--panel-dark);
-      border: 1px solid var(--border-dark);
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.12);
       border-left: 4px solid var(--accent);
       border-radius: 6px;
       padding: 1rem;
@@ -107,9 +86,8 @@
     <h1>Faith Based Pilot (.net)</h1>
     <p class="lead">Watch. Listen. Strengthen your faith.</p>
 
-    <!-- WELCOME -->
+    <!-- 1) WELCOME -->
     <section id="welcome">
-      <div class="figure"><img src="images/youtube.png" alt="Faith Based Pilot - Welcome"></div>
       <p>
         <strong>FaithBasedPilot.net</strong> is the official <em>watching and listening</em> site for Faith Based Pilot —
         a focused place to experience messages on faith, fitness, and flight without distractions or algorithm noise.
@@ -117,7 +95,7 @@
       </p>
     </section>
 
-    <!-- WHY .NET -->
+    <!-- 2) WHY .NET vs .ORG -->
     <section id="why-net">
       <h2>Why This .NET Site Exists</h2>
       <p>
@@ -134,29 +112,42 @@
       </div>
     </section>
 
-    <!-- YOUTUBE + RUMBLE -->
+    <!-- 3) PLATFORMS -->
     <section id="platforms">
       <h2>YouTube & Rumble</h2>
-      <div class="figure"><img src="images/rumble.png" alt="YouTube and Rumble"></div>
       <p>
         Faith Based Pilot publishes on both <strong>YouTube</strong> and <strong>Rumble</strong>.
         YouTube serves as the main platform for reach and visibility.
         Rumble exists as a <strong>secure backup</strong> — ensuring every video remains available even if YouTube ever restricts content.
         This dual setup keeps the message online, uncensored, and always accessible.
       </p>
+
+      <!-- Optional: add embeds later
+      <div class="embeds">
+        <div class="embed">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+                  allowfullscreen loading="lazy"
+                  style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;"></iframe>
+        </div>
+        <div class="embed">
+          <iframe src="https://rumble.com/embed/vXXXXX/?pub=XXXX"
+                  allowfullscreen loading="lazy"
+                  style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;"></iframe>
+        </div>
+      </div>
+      -->
     </section>
 
-    <!-- MISSION -->
+    <!-- 4) MISSION -->
     <section id="mission">
       <h2>Mission</h2>
       <p>
-        Faith Based Pilot exists to encourage strength, discipline, and truth in everyday life —
-        in the gym, in the cockpit, and in the daily walk of faith.
-        Each message aims to challenge the mind, build conviction, and show what living boldly in faith really looks like.
+        Faith Based Pilot exists to encourage strength, discipline, and truth in everyday life — in the gym, in the cockpit,
+        and in the daily walk of faith. Each message aims to challenge the mind, build conviction, and show what living boldly in faith looks like.
       </p>
     </section>
 
-    <!-- CONTACT -->
+    <!-- 5) CONTACT -->
     <section id="contact">
       <h2>Contact</h2>
       <p>
