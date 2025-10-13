@@ -35,11 +35,55 @@
     }
     body.light header { background-color: #f0f0f0; }
 
-    /* NAV (disabled) */
-    /*
-    nav { display: flex; gap: 1.5rem; }
-    nav a { color: inherit; text-decoration: none; font-weight: bold; font-size: 1rem; }
-    */
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      font-weight: bold;
+      font-size: 1.15rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+    }
+
+    .nav-links a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    body.light .nav-links a::after {
+      background-color: #0073e6;
+    }
 
     /* Theme toggle (uses your logo) */
     #themeToggle {
@@ -60,6 +104,7 @@
     body.light section + section { border-top-color: var(--rule-light); }
 
     p { line-height: 1.65; margin: .6rem 0; }
+
     .notice {
       background: rgba(255,255,255,.03);
       border: 1px solid rgba(255,255,255,.12);
@@ -78,8 +123,15 @@
 
 <body>
   <header>
-    <!-- <nav> (disabled) </nav> -->
-    <img id="themeToggle" src="images/fulllogo_transparent_nobuffer.png" alt="Toggle Theme">
+    <nav class="container">
+      <a href="fbp.html" class="nav-logo">Faith Based Pilot</a>
+      <div class="nav-links">
+        <a href="fbp.html" class="active">Home</a>
+        <a href="youtube.html">YouTube</a>
+        <a href="rumble.html">Rumble</a>
+      </div>
+      <img id="themeToggle" src="images/fulllogo_transparent_nobuffer.png" alt="Toggle Theme">
+    </nav>
   </header>
 
   <main class="container">
@@ -121,21 +173,6 @@
         Rumble exists as a <strong>secure backup</strong> — ensuring every video remains available even if YouTube ever restricts content.
         This dual setup keeps the message online, uncensored, and always accessible.
       </p>
-
-      <!-- Optional: add embeds later
-      <div class="embeds">
-        <div class="embed">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID"
-                  allowfullscreen loading="lazy"
-                  style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;"></iframe>
-        </div>
-        <div class="embed">
-          <iframe src="https://rumble.com/embed/vXXXXX/?pub=XXXX"
-                  allowfullscreen loading="lazy"
-                  style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;"></iframe>
-        </div>
-      </div>
-      -->
     </section>
 
     <!-- 4) MISSION -->
@@ -145,16 +182,6 @@
         Faith Based Pilot exists to encourage strength, discipline, and truth in everyday life — in the gym, in the cockpit,
         and in the daily walk of faith. Each message aims to challenge the mind, build conviction, and show what living boldly in faith looks like.
       </p>
-    </section>
-
-    <!-- 5) CONTACT -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        For encouragement, collaboration, or prayer requests, contact:<br><br>
-        <a class="link" href="mailto:aviationministries@faithbasedpilot.com">aviationministries@faithbasedpilot.com</a>
-      </p>
-      <p style="margin-top: 1rem; font-style: italic; color: gray;">— FBP (Faith Based Pilot)</p>
     </section>
 
     <div class="footer">
