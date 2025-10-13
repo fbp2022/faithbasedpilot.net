@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faith Based Pilot – Rumble</title>
 
+  <style>
+    :root { --accent:#4da3ff; --rule-dark:rgba(255,255,255,.08); --rule-light:#e6e6e6; }
+    body { margin:0; padding:0; font-family:Arial,sans-serif; background:#111; color:#fff; }
+    body.light { background:#fff; color:#000; }
+    .container { max-width:1100px; margin:0 auto; padding:0 16px; }
+
+    header { background:#1a1a1a; padding:1rem 2rem; display:flex; justify-content:center; align-items:center; position:relative; }
+    body.light header { background:#f0f0f0; }
+
+    /* NAVBAR */
+    nav { display:flex; justify-content:space-between; align-items:center; width:100%; max-width:900px; margin:0 auto; }
+    .nav-logo { font-weight:700; font-size:1.15rem; text-decoration:none; color:inherit; }
+    .nav-links { display:flex; gap:1.75rem; }
+    .nav-links a { color:inherit; text-decoration:none; font-weight:700; font-size:1rem; position:relative; }
+    .nav-links a::after { content:""; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:var(--accent); transition:width .3s ease; }
+    .nav-links a:hover::after, .nav-links a.active::after { width:100%; }
+    body.light .nav-links a::after { background:#0073e6; }
+
+    #themeToggle { width:40px; height:40px; cursor:pointer; position:absolute; right:1.25rem; top:.9rem; object-fit:contain; filter:invert(1); transition:filter .3s ease; }
+    body.light #themeToggle { filter:invert(0); }
+
+    h1 { text-align:center; margin:2rem 0 .25rem; }
+    .lead { text-align:center; margin:0 0 1.5rem; color:var(--accent); font-weight:700; }
+
+    section { padding:2rem 0; border-top:1px solid transparent; }
+    section + section { border-top-color:var(--rule-dark); }
+    body.light section + section { border-top-color:var(--rule-light); }
+
+    /* Card grid of links */
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; }
+    .card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:14px 16px; }
+    .card a { color:var(--accent); text-decoration:none; font-weight:700; }
+    .card p { margin:.35rem 0 0; color:#cfd6e6; }
+    body.light .card { background:#fff; border-color:#e6e6e6; }
+    body.light .card p { color:#333; }
+
+    /* Optional embed styling (if you later add iframes) */
+    iframe { width:100%; aspect-ratio:16/9; border:0; border-radius:8px; background:#000; }
+
+    .footer { font-size:.75rem; padding:2rem 0 3rem; color:gray; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="fbp.html" class="nav-logo">Faith Based Pilot</a>
+      <div class="nav-links">
+        <a href="fbp.html">Home</a>
+        <a href="youtube.html">YouTube</a>
+        <a href="rumble.html" class="active">Rumble</a>
+      </div>
+      <img id="themeToggle" src="images/fulllogo_transparent_nobuffer.png" alt="Toggle Theme">
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Rumble</h1>
+    <p class="lead">Mirrored uploads for resilience. If YouTube ever restricts content, you’ll still find it here.</p>
+
+    <section>
+      <div class="grid">
+        <div class="card">
+          <a href="https://rumble.com/v6zllvu-the-jezebelian-spirit.html" target="_blank" rel="noopener">The Jezebelian Spirit</a>
+          <p>Rumble mirror</p>
+        </div>
+        <div class="card">
+          <a href="https://rumble.com/v6zgdsi-jesus-freak-pt.-1.html" target="_blank" rel="noopener">Jesus Freak pt. 1</a>
+          <p>Rumble mirror</p>
+        </div>
+        <div class="card">
+          <a href="https://rumble.com/v6zgefy-jesus-freak-pt.-2.html" target="_blank" rel="noopener">Jesus Freak pt. 2</a>
+          <p>Rumble mirror</p>
+        </div>
+        <div class="card">
+          <a href="https://rumble.com/v6zgdlm-divine-plans.html" target="_blank" rel="noopener">Divine Plans</a>
+          <p>Rumble mirror</p>
+        </div>
+        <div class="card">
+          <a href="https://rumble.com/v6zgc6u-ecclesiastes-chapters-1-2.html" target="_blank" rel="noopener">Ecclesiastes Chapters 1–2</a>
+          <p>Rumble mirror</p>
+        </div>
+        <div class="card">
+          <a href="https://rumble.com/v6zgbue-morality.html" target="_blank" rel="noopener">Morality</a>
+          <p>Rumble mirror</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPTIONAL: switch link-cards to embeds later (requires your Rumble pub ID).
+         Example (uncomment, replace vXXXX + pub=YYYY, and remove the card above):
+         <iframe src="https://rumble.com/embed/v6zllvu/?pub=YYYY" allowfullscreen loading="lazy"></iframe>
+    -->
+
+    <div class="footer">
+      &copy; <span id="year"></span> Faith Based Pilot — FaithBasedPilot.net
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const body = document.body, t = document.getElementById('themeToggle');
+      const yearEl = document.getElementById('year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
+      const saved = localStorage.getItem('theme'); if (saved === 'light') body.classList.add('light');
+      function toggle() { body.classList.toggle('light'); localStorage.setItem('theme', body.classList.contains('light') ? 'light' : 'dark'); }
+      t.addEventListener('click', toggle);
+      t.setAttribute('role','button'); t.setAttribute('aria-label','Toggle color theme'); t.setAttribute('tabindex','0');
+      t.addEventListener('keydown', e => { if (e.key==='Enter' || e.key===' ') { e.preventDefault(); toggle(); }});
+    })();
+  </script>
+</body>
+</html>
