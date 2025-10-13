@@ -1,15 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Faith Based Pilot - Home</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faith Based Pilot</title>
+
+  <!-- Load reCAPTCHA Enterprise -->
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcFj-grAAAAAHkCqd7KHorciNrbZmX81Tq4Fens" async defer></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+    }
+
+    body.light {
+      background-color: #fff;
+      color: #000;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    body.light header {
+      background-color: #f0f0f0;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    #themeToggle {
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      position: absolute;
+      right: 2rem;
+      top: 1rem;
+      filter: invert(1);
+      transition: filter 0.3s ease;
+    }
+
+    body.light #themeToggle {
+      filter: invert(0);
+    }
+
+    h1 {
+      text-align: center;
+      margin: 2rem 0 1rem;
+    }
+
+    .section {
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .section img {
+      width: 80%;
+      max-width: 600px;
+      height: auto;
+      display: block;
+      margin: 0 auto 1rem;
+    }
+
+    .section p {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    form {
+      text-align: center;
+      margin: 4rem 0 2rem;
+    }
+
+    input[type="email"],
+    input[type="text"],
+    textarea {
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+      display: block;
+      background-color: #222;
+      border: 1px solid #444;
+      color: white;
+    }
+
+    body.light input[type="email"],
+    body.light input[type="text"],
+    body.light textarea {
+      background-color: #fff;
+      color: #000;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    body.light button {
+      background-color: #e0e0e0;
+      color: #000;
+    }
+
+    .footer {
+      font-size: 0.75rem;
+      text-align: left;
+      padding: 2rem;
+      color: gray;
+    }
+  </style>
 </head>
+
 <body>
-  <main>
-    <h1>Welcome to FaithBasedPilot.net</h1>
-    <p>This is a hidden page. Please use the navigation to access the content.</p>
-  </main>
+  <!-- Header & Navigation -->
+  <header>
+    <nav>
+      
+    </nav>
+    <img id="themeToggle" src="images/fulllogo_transparent_nobuffer.png" alt="Toggle Theme">
+  </header>
+
+  <!-- Welcome Section -->
+  <h1>Welcome</h1>
+  <div class="section">
+    <img src="images/fulllogo_transparent_nobuffer.png" alt="Faith Based Pilot>
+    <p>
+    
+    </p>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="section" id="contact">
+    <h2>Contact</h2>
+    <p>
+      If you’d like to reach out, share encouragement, collaborate, or request a prayer you can contact me directly at:<br><br>
+      <a href="mailto:aviationministries@faithbasedpilot.com" style="color:#4da3ff; text-decoration:none; font-weight:bold;">
+        aviationministries@faithbasedpilot.com
+      </a>
+    </p>
+    <p style="margin-top: 1rem; font-style: italic; color: gray;">
+      — FBP (Faith Based Pilot)
+    </p>
+  </div>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    (function () {
+      const body = document.body;
+      const toggleEl = document.getElementById('themeToggle');
+
+      // Set initial theme
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light') body.classList.add('light');
+
+      // Toggle function
+      function toggleTheme() {
+        body.classList.toggle('light');
+        const mode = body.classList.contains('light') ? 'light' : 'dark';
+        localStorage.setItem('theme', mode);
+      }
+
+      // Attach event listeners
+      toggleEl.addEventListener('click', toggleTheme);
+      toggleEl.setAttribute('role', 'button');
+      toggleEl.setAttribute('aria-label', 'Toggle color theme');
+      toggleEl.setAttribute('tabindex', '0');
+      toggleEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleTheme();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
