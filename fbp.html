@@ -6,19 +6,25 @@
   <title>Faith Based Pilot (.net)</title>
 
   <style>
+    :root {
+      --accent: #4da3ff;
+      --border-dark: #333;
+      --panel-dark: #151515;
+    }
+
+    /* Base */
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
       background-color: #111;
-      color: white;
+      color: #fff;
     }
+    body.light { background-color: #fff; color: #000; }
 
-    body.light {
-      background-color: #fff;
-      color: #000;
-    }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 16px; }
 
+    /* Header */
     header {
       background-color: #1a1a1a;
       padding: 1rem 2rem;
@@ -27,188 +33,144 @@
       align-items: center;
       position: relative;
     }
+    body.light header { background-color: #f0f0f0; }
 
-    body.light header {
-      background-color: #f0f0f0;
-    }
-
-    /* NAV TEMPORARILY DISABLED */
+    /* NAV (disabled) */
     /*
-    nav {
-      display: flex;
-      gap: 1.5rem;
-    }
-    nav a {
-      color: inherit;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-    }
+    nav { display: flex; gap: 1.5rem; }
+    nav a { color: inherit; text-decoration: none; font-weight: bold; font-size: 1rem; }
     */
 
+    /* Theme toggle */
     #themeToggle {
-      width: 32px;
-      height: 32px;
-      cursor: pointer;
-      position: absolute;
-      right: 2rem;
-      top: 1rem;
+      width: 40px; height: 40px; cursor: pointer;
+      position: absolute; right: 1.5rem; top: 1rem;
+      object-fit: contain;
       filter: invert(1);
-      transition: filter 0.3s ease;
+      transition: filter .3s ease;
     }
-
     body.light #themeToggle { filter: invert(0); }
 
-    h1 {
-      text-align: center;
-      margin: 2rem 0 0.25rem;
-    }
+    /* Headings / layout */
+    h1 { text-align: center; margin: 2rem 0 .25rem; }
+    .lead { text-align: center; margin: 0 0 1.5rem; color: var(--accent); font-weight: bold; }
 
-    .lead {
-      text-align: center;
-      margin: 0 1rem 1.25rem;
-      color: #4da3ff;
-      font-weight: bold;
-    }
+    section { padding: 2.25rem 0; border-top: 1px solid transparent; }
+    section + section { border-top-color: rgba(255,255,255,.07); }
+    body.light section + section { border-top-color: #e6e6e6; }
 
-    .section {
-      text-align: center;
-      margin: 3rem 0;
-      padding: 0 1rem;
-    }
+    p { line-height: 1.65; margin: .6rem 0; }
 
-    .section img {
-      width: 80%;
-      max-width: 600px;
-      height: auto;
-      display: block;
+    /* Images */
+    .figure {
       margin: 0 auto 1rem;
+      width: 100%;
+      max-width: 720px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 6px 22px rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.06);
     }
-
-    .section p {
-      max-width: 700px;
-      margin: 0.5rem auto;
-      line-height: 1.65;
+    .figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      background:#000;
     }
+    body.light .figure { border-color: #e9e9e9; box-shadow: 0 8px 20px rgba(0,0,0,.12); }
 
     .notice {
-      max-width: 700px;
-      margin: 1rem auto 0;
-      text-align: left;
-      background: #151515;
-      border: 1px solid #333;
-      border-left: 4px solid #4da3ff;
-      padding: 1rem;
+      background: var(--panel-dark);
+      border: 1px solid var(--border-dark);
+      border-left: 4px solid var(--accent);
       border-radius: 6px;
+      padding: 1rem;
+      margin-top: 1rem;
+      text-align: left;
     }
     body.light .notice { background: #fafafa; border-color: #ddd; }
 
-    a.link {
-      color: #4da3ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .footer {
-      font-size: 0.75rem;
-      text-align: left;
-      padding: 2rem;
-      color: gray;
-    }
+    .link { color: var(--accent); text-decoration: none; font-weight: bold; }
+    .footer { font-size: .75rem; padding: 2rem 0 3rem; color: gray; }
   </style>
 </head>
 
 <body>
-  <!-- Header (nav commented out for now) -->
   <header>
-    <!--
-    <nav>
-      <a href="#watch">Watch</a>
-      <a href="#listen">Listen</a>
-      <a href="#why-net">Why .net</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    -->
-    <img id="themeToggle" src="images/theme-toggle-logo.png" alt="Toggle Theme">
+    <!-- <nav> (disabled) </nav> -->
+    <img id="themeToggle" src="images/fulllogo_transparent_nobuffer.png" alt="Toggle Theme">
   </header>
 
-  <!-- Welcome / Tagline -->
-  <h1>Faith Based Pilot (.net)</h1>
-  <p class="lead">Watch. Listen. Strengthen your faith.</p>
+  <main class="container">
+    <h1>Faith Based Pilot (.net)</h1>
+    <p class="lead">Watch. Listen. Strengthen your faith.</p>
 
-  <!-- Welcome Section -->
-  <div class="section" id="welcome">
-    <img src="images/welcome.jpg" alt="Faith Based Pilot - Welcome">
-    <p>
-      <strong>FaithBasedPilot.net</strong> is the official watching and listening hub for Faith Based Pilot —
-      a clean, focused place to experience messages about faith, fitness, and flight without distractions or feed hunting.
-      If you want a direct way to <em>watch</em> and <em>listen</em> to FBP content, you’re in the right place.
-    </p>
-  </div>
+    <!-- WELCOME -->
+    <section id="welcome">
+      <div class="figure"><img src="images/youtube.png" alt="Faith Based Pilot - Welcome"></div>
+      <p>
+        <strong>FaithBasedPilot.net</strong> is the official <em>watching and listening</em> site for Faith Based Pilot —
+        a focused place to experience messages on faith, fitness, and flight without distractions or algorithm noise.
+        This is where everything FBP publishes in video or audio form lives together — simple, clear, and direct.
+      </p>
+    </section>
 
-  <!-- Mission Section -->
-  <div class="section" id="mission">
-    <h2>Mission</h2>
-    <img src="images/mission.jpg" alt="Mission Image">
-    <p>
-      Faith Based Pilot exists to encourage strength, discipline, and truth in everyday life —
-      in the gym, in the cockpit, at work, and at home. Each message aims to challenge the mind,
-      strengthen conviction, and point to a life lived boldly in faith.
-    </p>
-  </div>
+    <!-- WHY .NET -->
+    <section id="why-net">
+      <h2>Why This .NET Site Exists</h2>
+      <p>
+        The <strong>.net</strong> site was created as a dedicated media hub — a place to <em>watch</em> and <em>listen</em>.
+        Meanwhile, the <a class="link" href="https://faithbasedpilot.org" target="_blank" rel="noopener">FaithBasedPilot.org</a>
+        site focuses on written studies, resources, and long-form material. Separating the two makes both simpler and faster to navigate.
+      </p>
+      <div class="notice">
+        <strong>Quick guide:</strong>
+        <ul>
+          <li><strong>.net</strong> → watching & listening hub (videos, audio, series)</li>
+          <li><strong>.org</strong> → reading & research (articles, references, resources)</li>
+        </ul>
+      </div>
+    </section>
 
-  <!-- Why .NET vs .ORG -->
-  <div class="section" id="why-net">
-    <h2>Why This .NET Site Exists</h2>
-    <img src="images/why-net.jpg" alt="Why .NET">
-    <p>
-      <strong>.net</strong> and <strong>.org</strong> serve different purposes. The
-      <strong>.net</strong> site is intentionally built for media — a home to
-      <em>watch and listen</em>. The
-      <a class="link" href="https://faithbasedpilot.org" target="_blank" rel="noopener">FaithBasedPilot.org</a>
-      site focuses on written studies, articles, and resources. Keeping them separate makes both clearer and easier to use.
-    </p>
-    <div class="notice">
-      <strong>Quick guide:</strong>
-      <ul>
-        <li><strong>.net</strong> → watching & listening hub (videos, audio, series)</li>
-        <li><strong>.org</strong> → reading & research (long-form writing, references, resources)</li>
-      </ul>
+    <!-- YOUTUBE + RUMBLE -->
+    <section id="platforms">
+      <h2>YouTube & Rumble</h2>
+      <div class="figure"><img src="images/rumble.png" alt="YouTube and Rumble"></div>
+      <p>
+        Faith Based Pilot publishes on both <strong>YouTube</strong> and <strong>Rumble</strong>.
+        YouTube serves as the main platform for reach and visibility.
+        Rumble exists as a <strong>secure backup</strong> — ensuring every video remains available even if YouTube ever restricts content.
+        This dual setup keeps the message online, uncensored, and always accessible.
+      </p>
+    </section>
+
+    <!-- MISSION -->
+    <section id="mission">
+      <h2>Mission</h2>
+      <p>
+        Faith Based Pilot exists to encourage strength, discipline, and truth in everyday life —
+        in the gym, in the cockpit, and in the daily walk of faith.
+        Each message aims to challenge the mind, build conviction, and show what living boldly in faith really looks like.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        For encouragement, collaboration, or prayer requests, contact:<br><br>
+        <a class="link" href="mailto:aviationministries@faithbasedpilot.com">aviationministries@faithbasedpilot.com</a>
+      </p>
+      <p style="margin-top: 1rem; font-style: italic; color: gray;">— FBP (Faith Based Pilot)</p>
+    </section>
+
+    <div class="footer">
+      &copy; <span id="year"></span> Faith Based Pilot — FaithBasedPilot.net
     </div>
-  </div>
+  </main>
 
-  <!-- Platforms Philosophy -->
-  <div class="section" id="platforms">
-    <h2>YouTube & Rumble</h2>
-    <img src="images/platforms.jpg" alt="YouTube and Rumble">
-    <p>
-      Faith Based Pilot publishes on both <strong>YouTube</strong> and <strong>Rumble</strong>.
-      YouTube is the primary platform for reach and accessibility. Rumble operates as a
-      <strong>secure backup</strong> in case YouTube ever restricts or removes content.
-      This dual presence protects the message and keeps it available.
-    </p>
-  </div>
-
-  <!-- Contact Section -->
-  <div class="section" id="contact">
-    <h2>Contact</h2>
-    <p>
-      For encouragement, collaboration, or prayer requests, contact:
-      <br><br>
-      <a href="mailto:aviationministries@faithbasedpilot.com" class="link">
-        aviationministries@faithbasedpilot.com
-      </a>
-    </p>
-    <p style="margin-top: 1rem; font-style: italic; color: gray;">
-      — FBP (Faith Based Pilot)
-    </p>
-  </div>
-
-  <div class="footer">
-    &copy; <span id="year"></span> Faith Based Pilot — FaithBasedPilot.net
-  </div>
-
-  <!-- Theme Toggle Script -->
   <script>
     (function () {
       const body = document.body;
@@ -216,18 +178,15 @@
       const yearEl = document.getElementById('year');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      // Set initial theme
       const saved = localStorage.getItem('theme');
       if (saved === 'light') body.classList.add('light');
 
-      // Toggle function
       function toggleTheme() {
         body.classList.toggle('light');
         const mode = body.classList.contains('light') ? 'light' : 'dark';
         localStorage.setItem('theme', mode);
       }
 
-      // Attach event listeners
       toggleEl.addEventListener('click', toggleTheme);
       toggleEl.setAttribute('role', 'button');
       toggleEl.setAttribute('aria-label', 'Toggle color theme');
