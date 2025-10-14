@@ -24,76 +24,49 @@
 
     .container { max-width: 860px; margin: 0 auto; padding: 0 16px; }
 
-    /* Header */
-    header {
-      background-color: #1a1a1a;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
+    /* ===== NAV BAR (.NET) ===== */
+    .site-header{
+      background:#1a1a1a; color:#fff;
+      padding:12px 0; position:sticky; top:0; z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,.1);
     }
-    body.light header { background-color: #f0f0f0; }
+    body.light .site-header{
+      background:#f0f0f0; color:#000;
+      border-bottom:1px solid rgba(0,0,0,.1);
+    }
+    .brand{
+      font-weight:700; font-size:1.1rem; text-decoration:none; color:inherit;
+    }
+    .container-nav{
+      display:flex; align-items:center; justify-content:space-between;
+      max-width:900px; margin:0 auto; padding:0 16px;
+    }
+    .site-nav{
+      display:flex; gap:1.25rem; flex-wrap:wrap; align-items:center;
+    }
+    .site-nav a{
+      color:inherit; text-decoration:none; font-weight:bold; font-size:.95rem; position:relative;
+    }
+    .site-nav a::after{
+      content:""; position:absolute; bottom:-4px; left:0; width:0%; height:2px;
+      background-color:#4da3ff; transition:width .3s ease;
+    }
+    .site-nav a:hover::after, .site-nav a:focus::after{ width:100%; }
+    body.light .site-nav a::after{ background-color:#0073e6; }
 
-    /* NAVBAR */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
+    #themeToggle{
+      width:36px; height:36px; cursor:pointer; object-fit:contain;
+      filter:invert(1); transition:filter .3s ease;
     }
+    body.light #themeToggle{ filter:invert(0); }
 
-    .nav-logo {
-      font-weight: bold;
-      font-size: 1.15rem;
-      text-decoration: none;
-      color: inherit;
+    @media(max-width:600px){
+      .container-nav{ flex-direction:column; gap:.75rem; text-align:center; }
+      .site-nav{ gap:.75rem; justify-content:center; }
+      .brand{ font-size:1rem; }
+      #themeToggle{ position:static; margin-top:4px; }
     }
-
-    .nav-links {
-      display: flex;
-      gap: 1.75rem;
-    }
-
-    .nav-links a {
-      color: inherit;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background-color: var(--accent);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    body.light .nav-links a::after {
-      background-color: #0073e6;
-    }
-
-    /* Theme toggle (uses your logo) */
-    #themeToggle {
-      width: 40px; height: 40px; cursor: pointer;
-      position: absolute; right: 1.25rem; top: .9rem;
-      object-fit: contain;
-      filter: invert(1);
-      transition: filter .3s ease;
-    }
-    body.light #themeToggle { filter: invert(0); }
+    /* ===== /NAV BAR ===== */
 
     /* Typography & layout */
     h1 { text-align: center; margin: 2rem 0 .25rem; }
@@ -122,18 +95,21 @@
 </head>
 
 <body>
- <header>
-  <nav class="container">
-    <a href="fbp.html" class="nav-logo">Faith Based Pilot</a>
-    <div class="nav-links">
-      <a href="youtube.html">YouTube</a>
-      <a href="rumble.html">Rumble</a>
-      <a href="https://faithbasedpilot.org" target="_blank" rel="noopener">.org Site</a>
-    </div>
-    <img id="themeToggle" src="images/fulllogo_transparent_nobuffer.png" alt="Toggle Theme">
-  </nav>
-</header>
+  <!-- ===== NAV BAR (.NET) ===== -->
+  <header class="site-header">
+    <div class="container-nav">
+      <a class="brand" href="https://faithbasedpilot.net">Faith Based Pilot</a>
 
+      <nav class="site-nav">
+        <a href="youtube.html">YouTube</a>
+        <a href="rumble.html">Rumble</a>
+        <a href="https://faithbasedpilot.org" target="_blank" rel="noopener">FaithBasedPilot.org</a>
+      </nav>
+
+      <img id="themeToggle" src="images/fulllogo_transparent_nobuffer.png" alt="Toggle Theme">
+    </div>
+  </header>
+  <!-- ===== /NAV BAR ===== -->
 
   <main class="container">
     <h1>Faith Based Pilot (.net)</h1>
@@ -143,7 +119,7 @@
     <section id="welcome">
       <p>
         <strong>FaithBasedPilot.net</strong> is the official <em>watching and listening</em> site for Faith Based Pilot —
-        a focused place to experience messages on faith, fitness, and flight without distractions or algorithm noise.
+        a focused place to experience messages on faith, and flight without distractions or algorithm noise.
         This is where everything FBP publishes in video or audio form lives together — simple, clear, and direct.
       </p>
     </section>
