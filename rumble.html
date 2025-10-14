@@ -7,24 +7,59 @@
 
   <style>
     :root { --accent:#4da3ff; --rule-dark:rgba(255,255,255,.08); --rule-light:#e6e6e6; }
-    body { margin:0; padding:0; font-family:Arial,sans-serif; background:#111; color:#fff; }
+
+    body {
+      margin:0; padding:0;
+      font-family:Arial,sans-serif;
+      background:#111; color:#fff;
+    }
     body.light { background:#fff; color:#000; }
+
     .container { max-width:1100px; margin:0 auto; padding:0 16px; }
 
-    header { background:#1a1a1a; padding:1rem 2rem; display:flex; justify-content:center; align-items:center; position:relative; }
-    body.light header { background:#f0f0f0; }
+    /* ===== NAV BAR (.NET) ===== */
+    .site-header{
+      background:#1a1a1a; color:#fff;
+      padding:12px 0; position:sticky; top:0; z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,.1);
+    }
+    body.light .site-header{
+      background:#f0f0f0; color:#000;
+      border-bottom:1px solid rgba(0,0,0,.1);
+    }
+    .brand{
+      font-weight:700; font-size:1.1rem; text-decoration:none; color:inherit;
+    }
+    .container-nav{
+      display:flex; align-items:center; justify-content:space-between;
+      max-width:900px; margin:0 auto; padding:0 16px;
+    }
+    .site-nav{
+      display:flex; gap:1.25rem; flex-wrap:wrap; align-items:center;
+    }
+    .site-nav a{
+      color:inherit; text-decoration:none; font-weight:bold; font-size:.95rem; position:relative;
+    }
+    .site-nav a::after{
+      content:""; position:absolute; bottom:-4px; left:0; width:0%; height:2px;
+      background-color:#4da3ff; transition:width .3s ease;
+    }
+    .site-nav a:hover::after, .site-nav a:focus::after{ width:100%; }
+    body.light .site-nav a::after{ background-color:#0073e6; }
 
-    /* NAVBAR */
-    nav { display:flex; justify-content:space-between; align-items:center; width:100%; max-width:900px; margin:0 auto; }
-    .nav-logo { font-weight:700; font-size:1.15rem; text-decoration:none; color:inherit; }
-    .nav-links { display:flex; gap:1.75rem; }
-    .nav-links a { color:inherit; text-decoration:none; font-weight:700; font-size:1rem; position:relative; }
-    .nav-links a::after { content:""; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:var(--accent); transition:width .3s ease; }
-    .nav-links a:hover::after, .nav-links a.active::after { width:100%; }
-    body.light .nav-links a::after { background:#0073e6; }
+    #themeToggle{
+      width:36px; height:36px; cursor:pointer; object-fit:contain;
+      filter:invert(1); transition:filter .3s ease;
+    }
+    body.light #themeToggle{ filter:invert(0); }
 
-    #themeToggle { width:40px; height:40px; cursor:pointer; position:absolute; right:1.25rem; top:.9rem; object-fit:contain; filter:invert(1); transition:filter .3s ease; }
-    body.light #themeToggle { filter:invert(0); }
+    @media(max-width:600px){
+      .container-nav{ flex-direction:column; gap:.75rem; text-align:center; }
+      .site-nav{ gap:.75rem; justify-content:center; }
+      .brand{ font-size:1rem; }
+      #themeToggle{ position:static; margin-top:4px; }
+    }
+    /* ===== /NAV BAR ===== */
 
     h1 { text-align:center; margin:2rem 0 .25rem; }
     .lead { text-align:center; margin:0 0 1.5rem; color:var(--accent); font-weight:700; }
@@ -33,71 +68,63 @@
     section + section { border-top-color:var(--rule-dark); }
     body.light section + section { border-top-color:var(--rule-light); }
 
-    /* Card grid of links */
+    /* Card grid of embeds */
     .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; }
-    .card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:14px 16px; }
-    .card a { color:var(--accent); text-decoration:none; font-weight:700; }
-    .card p { margin:.35rem 0 0; color:#cfd6e6; }
-    body.light .card { background:#fff; border-color:#e6e6e6; }
-    body.light .card p { color:#333; }
+    iframe {
+      width:100%; aspect-ratio:16/9; border:0; border-radius:8px; background:#000;
+    }
 
-    /* Optional embed styling (if you later add iframes) */
-    iframe { width:100%; aspect-ratio:16/9; border:0; border-radius:8px; background:#000; }
-
-    .footer { font-size:.75rem; padding:2rem 0 3rem; color:gray; }
+    .footer { font-size:.75rem; padding:2rem 0 3rem; color:gray; text-align:center; }
   </style>
 </head>
 <body>
-  <header>
-  <nav class="container">
-    <a href="fbp.html" class="nav-logo">Faith Based Pilot</a>
-    <div class="nav-links">
-      <a href="fbp.html">Home</a>
-      <a href="youtube.html">YouTube</a>
-      <a href="rumble.html">Rumble</a>
-      <a href="https://faithbasedpilot.org" target="_blank" rel="noopener">.org Site</a>
+
+  <!-- ===== NAV BAR (.NET) ===== -->
+  <header class="site-header">
+    <div class="container-nav">
+      <a class="brand" href="https://faithbasedpilot.net">Faith Based Pilot</a>
+      <nav class="site-nav">
+        <a href="fbp.html">Home</a>
+        <a href="youtube.html">YouTube</a>
+        <a href="rumble.html">Rumble</a>
+        <a href="https://faithbasedpilot.org" target="_blank" rel="noopener">FaithBasedPilot.org</a>
+      </nav>
+      <img id="themeToggle" src="images/fulllogo_transparent_nobuffer.png" alt="Toggle Theme">
     </div>
-    <img id="themeToggle" src="images/fulllogo_transparent_nobuffer.png" alt="Toggle Theme">
-  </nav>
-</header>
+  </header>
+  <!-- ===== /NAV BAR ===== -->
 
   <main class="container">
     <h1>Rumble</h1>
     <p class="lead">Mirrored uploads for resilience. If YouTube ever restricts content, you’ll still find it here.</p>
 
-   <section>
-  <div class="grid">
-    <iframe title="The Jezebelian Spirit"
-      src="https://rumble.com/embed/v6xevda/?pub=u4n98xk"
-      allowfullscreen loading="lazy"
-      style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;"></iframe>
+    <section>
+      <div class="grid">
+        <iframe title="The Jezebelian Spirit"
+          src="https://rumble.com/embed/v6xevda/?pub=u4n98xk"
+          allowfullscreen loading="lazy"></iframe>
 
-    <iframe title="Jesus Freak pt. 1"
-      src="https://rumble.com/embed/v6x9n9y/?pub=u4n98xk"
-      allowfullscreen loading="lazy"
-      style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;"></iframe>
+        <iframe title="Jesus Freak pt. 1"
+          src="https://rumble.com/embed/v6x9n9y/?pub=u4n98xk"
+          allowfullscreen loading="lazy"></iframe>
 
-    <iframe title="Jesus Freak pt. 2"
-      src="https://rumble.com/embed/v6x9nxe/?pub=u4n98xk"
-      allowfullscreen loading="lazy"
-      style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;"></iframe>
+        <iframe title="Jesus Freak pt. 2"
+          src="https://rumble.com/embed/v6x9nxe/?pub=u4n98xk"
+          allowfullscreen loading="lazy"></iframe>
 
-    <iframe title="Divine Plans"
-      src="https://rumble.com/embed/v6x9n32/?pub=u4n98xk"
-      allowfullscreen loading="lazy"
-      style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;"></iframe>
+        <iframe title="Divine Plans"
+          src="https://rumble.com/embed/v6x9n32/?pub=u4n98xk"
+          allowfullscreen loading="lazy"></iframe>
 
-    <iframe title="Ecclesiastes Chapters 1–2"
-      src="https://rumble.com/embed/v6x9loa/?pub=u4n98xk"
-      allowfullscreen loading="lazy"
-      style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;"></iframe>
+        <iframe title="Ecclesiastes Chapters 1–2"
+          src="https://rumble.com/embed/v6x9loa/?pub=u4n98xk"
+          allowfullscreen loading="lazy"></iframe>
 
-    <iframe title="Morality"
-      src="https://rumble.com/embed/v6x9lbu/?pub=u4n98xk"
-      allowfullscreen loading="lazy"
-      style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;"></iframe>
-  </div>
-</section>
+        <iframe title="Morality"
+          src="https://rumble.com/embed/v6x9lbu/?pub=u4n98xk"
+          allowfullscreen loading="lazy"></iframe>
+      </div>
+    </section>
 
     <div class="footer">
       &copy; <span id="year"></span> Faith Based Pilot — FaithBasedPilot.net
@@ -106,13 +133,30 @@
 
   <script>
     (function () {
-      const body = document.body, t = document.getElementById('themeToggle');
-      const yearEl = document.getElementById('year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
-      const saved = localStorage.getItem('theme'); if (saved === 'light') body.classList.add('light');
-      function toggle() { body.classList.toggle('light'); localStorage.setItem('theme', body.classList.contains('light') ? 'light' : 'dark'); }
-      t.addEventListener('click', toggle);
-      t.setAttribute('role','button'); t.setAttribute('aria-label','Toggle color theme'); t.setAttribute('tabindex','0');
-      t.addEventListener('keydown', e => { if (e.key==='Enter' || e.key===' ') { e.preventDefault(); toggle(); }});
+      const body = document.body;
+      const toggleEl = document.getElementById('themeToggle');
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light') body.classList.add('light');
+
+      function toggleTheme() {
+        body.classList.toggle('light');
+        const mode = body.classList.contains('light') ? 'light' : 'dark';
+        localStorage.setItem('theme', mode);
+      }
+
+      toggleEl.addEventListener('click', toggleTheme);
+      toggleEl.setAttribute('role', 'button');
+      toggleEl.setAttribute('aria-label', 'Toggle color theme');
+      toggleEl.setAttribute('tabindex', '0');
+      toggleEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleTheme();
+        }
+      });
     })();
   </script>
 </body>
