@@ -4,15 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Faith Based Pilot – Rumble</title>
+  <meta name="color-scheme" content="dark light" />
 
   <style>
     :root { --accent:#4da3ff; --rule-dark:rgba(255,255,255,.08); --rule-light:#e6e6e6; }
 
-    body {
-      margin:0; padding:0;
-      font-family:Arial,sans-serif;
-      background:#111; color:#fff;
-    }
+    body { margin:0; padding:0; font-family:Arial,sans-serif; background:#111; color:#fff; }
     body.light { background:#fff; color:#000; }
 
     .container { max-width:1100px; margin:0 auto; padding:0 16px; }
@@ -27,16 +24,11 @@
       background:#f0f0f0; color:#000;
       border-bottom:1px solid rgba(0,0,0,.1);
     }
-    .brand{
-      font-weight:700; font-size:1.1rem; text-decoration:none; color:inherit;
-    }
     .container-nav{
       display:flex; align-items:center; justify-content:space-between;
       max-width:900px; margin:0 auto; padding:0 16px;
     }
-    .site-nav{
-      display:flex; gap:1.25rem; flex-wrap:wrap; align-items:center;
-    }
+    .site-nav{ display:flex; gap:1.25rem; flex-wrap:wrap; align-items:center; }
     .site-nav a{
       color:inherit; text-decoration:none; font-weight:bold; font-size:.95rem; position:relative;
     }
@@ -56,7 +48,6 @@
     @media(max-width:600px){
       .container-nav{ flex-direction:column; gap:.75rem; text-align:center; }
       .site-nav{ gap:.75rem; justify-content:center; }
-      .brand{ font-size:1rem; }
       #themeToggle{ position:static; margin-top:4px; }
     }
     /* ===== /NAV BAR ===== */
@@ -68,11 +59,30 @@
     section + section { border-top-color:var(--rule-dark); }
     body.light section + section { border-top-color:var(--rule-light); }
 
-    /* Card grid of embeds */
+    /* Grid of embeds */
     .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; }
-    iframe {
-      width:100%; aspect-ratio:16/9; border:0; border-radius:8px; background:#000;
+
+    .card {
+      position:relative;
+      display:flex; flex-direction:column; gap:.5rem;
+      background:#161616; border:1px solid rgba(255,255,255,.08);
+      border-radius:12px; padding:12px;
     }
+    body.light .card{ background:#f7f7f7; border-color:rgba(0,0,0,.08); }
+
+    iframe { width:100%; aspect-ratio:16/9; border:0; border-radius:8px; background:#000; }
+
+    /* === Floating share button (same as YouTube page) === */
+    .vid-wrap{ position:relative; }
+    .share-fab{
+      position:absolute; top:10px; right:10px;
+      display:inline-flex; align-items:center; justify-content:center;
+      width:36px; height:36px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.25); background:rgba(0,0,0,.55);
+      color:#fff; cursor:pointer; backdrop-filter: blur(6px);
+    }
+    .share-fab:hover{ opacity:.95; }
+    body.light .share-fab{ background:rgba(255,255,255,.75); color:#000; border-color:rgba(0,0,0,.2); }
 
     /* Footer + Social Icons */
     footer.site-footer { font-size:.85rem; padding:2rem 0 3rem; color:gray; text-align:center; }
@@ -82,6 +92,8 @@
     .social svg { width:22px; height:22px; display:block; }
     .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
   </style>
+
+  <link rel="preconnect" href="https://rumble.com">
 </head>
 <body>
 
@@ -91,7 +103,7 @@
       <nav class="site-nav">
         <a href="fbp.html">Home</a>
         <a href="youtube.html">YouTube</a>
-        <a href="rumble.html">Rumble</a>
+        <a href="rumble.html" aria-current="page">Rumble</a>
         <a href="https://faithbasedpilot.org" target="_blank" rel="noopener">Writings</a>
       </nav>
       <img id="themeToggle" src="images/fulllogo_transparent_nobuffer.png" alt="Toggle Theme">
@@ -105,33 +117,133 @@
 
     <section>
       <div class="grid">
-        <iframe title="When Man Take God’s Throne"
-          src="https://rumble.com/embed/v6yxvsq/?pub=4n98xk"
-          allowfullscreen loading="lazy"></iframe>
-        
-        <iframe title="The Jezebelian Spirit"
-          src="https://rumble.com/embed/v6xevda/?pub=u4n98xk"
-          allowfullscreen loading="lazy"></iframe>
 
-        <iframe title="Jesus Freak pt. 1"
-          src="https://rumble.com/embed/v6x9n9y/?pub=u4n98xk"
-          allowfullscreen loading="lazy"></iframe>
+        <!-- CARD 1 -->
+        <article class="card">
+          <div class="vid-wrap">
+            <iframe title="When Man Take God’s Throne"
+              src="https://rumble.com/embed/v6yxvsq/?pub=4n98xk"
+              allowfullscreen loading="lazy"></iframe>
 
-        <iframe title="Jesus Freak pt. 2"
-          src="https://rumble.com/embed/v6x9nxe/?pub=u4n98xk"
-          allowfullscreen loading="lazy"></iframe>
+            <button class="share-fab" aria-label="Share video"
+              data-title="When Man Take God’s Throne"
+              data-embed="https://rumble.com/embed/v6yxvsq/?pub=4n98xk">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+                <path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/>
+              </svg>
+            </button>
+          </div>
+        </article>
 
-        <iframe title="Divine Plans"
-          src="https://rumble.com/embed/v6x9n32/?pub=u4n98xk"
-          allowfullscreen loading="lazy"></iframe>
+        <!-- CARD 2 -->
+        <article class="card">
+          <div class="vid-wrap">
+            <iframe title="The Jezebelian Spirit"
+              src="https://rumble.com/embed/v6xevda/?pub=u4n98xk"
+              allowfullscreen loading="lazy"></iframe>
 
-        <iframe title="Ecclesiastes Chapters 1–2"
-          src="https://rumble.com/embed/v6x9loa/?pub=u4n98xk"
-          allowfullscreen loading="lazy"></iframe>
+            <button class="share-fab" aria-label="Share video"
+              data-title="The Jezebelian Spirit"
+              data-embed="https://rumble.com/embed/v6xevda/?pub=u4n98xk">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+                <path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/>
+              </svg>
+            </button>
+          </div>
+        </article>
 
-        <iframe title="Morality"
-          src="https://rumble.com/embed/v6x9lbu/?pub=u4n98xk"
-          allowfullscreen loading="lazy"></iframe>
+        <!-- CARD 3 -->
+        <article class="card">
+          <div class="vid-wrap">
+            <iframe title="Jesus Freak pt. 1"
+              src="https://rumble.com/embed/v6x9n9y/?pub=u4n98xk"
+              allowfullscreen loading="lazy"></iframe>
+
+            <button class="share-fab" aria-label="Share video"
+              data-title="Jesus Freak pt. 1"
+              data-embed="https://rumble.com/embed/v6x9n9y/?pub=u4n98xk">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+                <path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- CARD 4 -->
+        <article class="card">
+          <div class="vid-wrap">
+            <iframe title="Jesus Freak pt. 2"
+              src="https://rumble.com/embed/v6x9nxe/?pub=u4n98xk"
+              allowfullscreen loading="lazy"></iframe>
+
+            <button class="share-fab" aria-label="Share video"
+              data-title="Jesus Freak pt. 2"
+              data-embed="https://rumble.com/embed/v6x9nxe/?pub=u4n98xk">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+                <path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- CARD 5 -->
+        <article class="card">
+          <div class="vid-wrap">
+            <iframe title="Divine Plans"
+              src="https://rumble.com/embed/v6x9n32/?pub=u4n98xk"
+              allowfullscreen loading="lazy"></iframe>
+
+            <button class="share-fab" aria-label="Share video"
+              data-title="Divine Plans"
+              data-embed="https://rumble.com/embed/v6x9n32/?pub=u4n98xk">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+                <path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- CARD 6 -->
+        <article class="card">
+          <div class="vid-wrap">
+            <iframe title="Ecclesiastes Chapters 1–2"
+              src="https://rumble.com/embed/v6x9loa/?pub=u4n98xk"
+              allowfullscreen loading="lazy"></iframe>
+
+            <button class="share-fab" aria-label="Share video"
+              data-title="Ecclesiastes Chapters 1–2"
+              data-embed="https://rumble.com/embed/v6x9loa/?pub=u4n98xk">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+                <path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- CARD 7 -->
+        <article class="card">
+          <div class="vid-wrap">
+            <iframe title="Morality"
+              src="https://rumble.com/embed/v6x9lbu/?pub=u4n98xk"
+              allowfullscreen loading="lazy"></iframe>
+
+            <button class="share-fab" aria-label="Share video"
+              data-title="Morality"
+              data-embed="https://rumble.com/embed/v6x9lbu/?pub=u4n98xk">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+                <path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+
       </div>
     </section>
   </main>
@@ -139,51 +251,41 @@
   <!-- Footer with Social Icons -->
   <footer class="site-footer">
     <nav class="social" aria-label="Social Links">
-      <!-- Instagram -->
       <a href="https://www.instagram.com/faithbasedpilot/" target="_blank" rel="noopener" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
         <span class="sr-only">Instagram</span>
       </a>
-
-      <!-- Facebook -->
       <a href="https://www.facebook.com/profile.php?id=100093368342398" target="_blank" rel="noopener" aria-label="Facebook">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M13 8h-1.2A2.8 2.8 0 0 0 9 10.8V19"/><path d="M10 13h3.2"/></svg>
         <span class="sr-only">Facebook</span>
       </a>
-
-      <!-- X (Twitter) -->
       <a href="https://x.com/FaithBasedPilot" target="_blank" rel="noopener" aria-label="X (Twitter)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
         <span class="sr-only">X (Twitter)</span>
       </a>
-
-      <!-- Truth Social -->
       <a href="https://truthsocial.com/@FaithBasedPilot" target="_blank" rel="noopener" aria-label="Truth Social">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 8h8M12 8v8"/></svg>
         <span class="sr-only">Truth Social</span>
       </a>
-
-      <!-- YouTube -->
       <a href="https://www.youtube.com/@FaithBasedPilot" target="_blank" rel="noopener" aria-label="YouTube">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="4"/><path d="M11 10l4 2-4 2v-4z" fill="currentColor" stroke="none"/></svg>
         <span class="sr-only">YouTube</span>
       </a>
-
-      <!-- Rumble -->
       <a href="https://rumble.com/c/c-7796604" target="_blank" rel="noopener" aria-label="Rumble">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M10 9l5 3-5 3V9z" fill="currentColor" stroke="none"/></svg>
         <span class="sr-only">Rumble</span>
       </a>
     </nav>
 
-    <div>© 2022 Faith Based Pilot — FaithBasedPilot.net</div>
+    <div>© <span id="year"></span> Faith Based Pilot — FaithBasedPilot.net</div>
   </footer>
 
   <script>
-    (function () {
+    (function(){
       const body = document.body;
       const toggleEl = document.getElementById('themeToggle');
 
+      // Theme restore
       const saved = localStorage.getItem('theme');
       if (saved === 'light') body.classList.add('light');
 
@@ -192,16 +294,48 @@
         const mode = body.classList.contains('light') ? 'light' : 'dark';
         localStorage.setItem('theme', mode);
       }
+      if (toggleEl){
+        toggleEl.addEventListener('click', toggleTheme);
+        toggleEl.setAttribute('role', 'button');
+        toggleEl.setAttribute('aria-label', 'Toggle color theme');
+        toggleEl.setAttribute('tabindex', '0');
+        toggleEl.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleTheme(); }
+        });
+      }
 
-      toggleEl.addEventListener('click', toggleTheme);
-      toggleEl.setAttribute('role', 'button');
-      toggleEl.setAttribute('aria-label', 'Toggle color theme');
-      toggleEl.setAttribute('tabindex', '0');
-      toggleEl.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleTheme();
-        }
+      // Auto year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // ===== Native Share for Rumble (no modal) =====
+      function embedToRumbleWatch(embedUrl){
+        // Convert: https://rumble.com/embed/v6xevda/?pub=... -> https://rumble.com/v6xevda.html
+        try{
+          const u = new URL(embedUrl);
+          const parts = u.pathname.split('/'); // ["", "embed", "v6xevda", ""]
+          const id = parts[2]; // v6xevda
+          if (!id) return embedUrl;
+          return `https://rumble.com/${id}.html`;
+        }catch{ return embedUrl; }
+      }
+
+      document.querySelectorAll('.share-fab').forEach(btn=>{
+        btn.addEventListener('click', async ()=>{
+          const title = btn.dataset.title || document.title;
+          const url = embedToRumbleWatch(btn.dataset.embed);
+          if (navigator.share){
+            try{ await navigator.share({ title, url }); }
+            catch{ /* user canceled */ }
+          } else {
+            try{
+              await navigator.clipboard.writeText(url);
+              btn.title = 'Link copied!';
+              setTimeout(()=> btn.removeAttribute('title'), 1200);
+            }catch{
+              window.open(url, '_blank', 'noopener');
+            }
+          }
+        });
       });
     })();
   </script>
