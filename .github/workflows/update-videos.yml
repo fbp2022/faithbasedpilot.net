@@ -2,8 +2,8 @@ name: Update Latest Videos from YouTube & Rumble
 
 on:
   schedule:
-    - cron: '0 0 * * 0'     # Runs every Sunday at midnight UTC (once a week)
-  workflow_dispatch:        # Lets you run it manually anytime
+    - cron: '0 13 * * *'     # Runs **once per day** at 1:00 PM UTC
+  workflow_dispatch:         # Allows you to run it manually anytime
 
 jobs:
   update-readme:
@@ -20,7 +20,7 @@ jobs:
           feed_list: |
             https://www.youtube.com/feeds/videos.xml?channel_id=UCFyM3oePGVXyU4fqZDuD1xQ
             https://rss.app/feeds/d0gxUSEhmi1H5RJu.xml
-          max_post_count: 8                    # Show up to 8 newest videos total
+          max_post_count: 8
           readme_path: ./README.md
           date_format: "MMMM d, yyyy"
           template: |
