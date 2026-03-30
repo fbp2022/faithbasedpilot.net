@@ -4,236 +4,136 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Faith Based Pilot (.net)</title>
-
-  <style>
-    :root {
-      --accent: #4da3ff;
-      --rule-dark: rgba(255,255,255,.08);
-      --rule-light: #e6e6e6;
-    }
-
-    /* Base */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #fff;
-    }
-    body.light { background-color: #fff; color: #000; }
-
-    .container { max-width: 860px; margin: 0 auto; padding: 0 16px; }
-
-    /* ===== NAV BAR (.NET) ===== */
-    .site-header{
-      background:#1a1a1a; color:#fff;
-      padding:12px 0; position:sticky; top:0; z-index:1000;
-      border-bottom:1px solid rgba(255,255,255,.1);
-    }
-    body.light .site-header{
-      background:#f0f0f0; color:#000;
-      border-bottom:1px solid rgba(0,0,0,.1);
-    }
-    .brand{
-      font-weight:700; font-size:1.1rem; text-decoration:none; color:inherit;
-    }
-    .container-nav{
-      display:flex; align-items:center; justify-content:space-between;
-      max-width:900px; margin:0 auto; padding:0 16px;
-    }
-    .site-nav{
-      display:flex; gap:1.25rem; flex-wrap:wrap; align-items:center;
-    }
-    .site-nav a{
-      color:inherit; text-decoration:none; font-weight:bold; font-size:.95rem; position:relative;
-    }
-    .site-nav a::after{
-      content:""; position:absolute; bottom:-4px; left:0; width:0%; height:2px;
-      background-color:#4da3ff; transition:width .3s ease;
-    }
-    .site-nav a:hover::after, .site-nav a:focus::after{ width:100%; }
-    body.light .site-nav a::after{ background-color:#0073e6; }
-
-    #themeToggle{
-      width:36px; height:36px; cursor:pointer; object-fit:contain;
-      filter:invert(1); transition:filter .3s ease;
-    }
-    body.light #themeToggle{ filter:invert(0); }
-
-    @media(max-width:600px){
-      .container-nav{ flex-direction:column; gap:.75rem; text-align:center; }
-      .site-nav{ gap:.75rem; justify-content:center; }
-      .brand{ font-size:1rem; }
-      #themeToggle{ position:static; margin-top:4px; }
-    }
-    /* ===== /NAV BAR ===== */
-
-    /* Typography & layout */
-    h1 { text-align: center; margin: 2rem 0 .25rem; }
-    .lead { text-align: center; margin: 0 0 1.5rem; color: var(--accent); font-weight: bold; }
-
-    section { padding: 2.25rem 0; border-top: 1px solid transparent; }
-    section + section { border-top-color: var(--rule-dark); }
-    body.light section + section { border-top-color: var(--rule-light); }
-
-    p { line-height: 1.65; margin: .6rem 0; }
-
-    .notice {
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.12);
-      border-left: 4px solid var(--accent);
-      border-radius: 6px;
-      padding: 1rem;
-      margin-top: 1rem;
-      text-align: left;
-    }
-    body.light .notice { background: #fafafa; border-color: #ddd; }
-
-    .link { color: var(--accent); text-decoration: none; font-weight: bold; }
-
-    /* Footer + Social Icons */
-    footer.site-footer { font-size: .85rem; padding: 2rem 0 3rem; color: gray; text-align:center; }
-    .social { display:flex; gap:1rem; justify-content:center; align-items:center; margin-bottom:1rem; flex-wrap:wrap; }
-    .social a { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; color: currentColor; opacity:.9; transition: opacity .2s ease, transform .2s ease; }
-    .social a:hover { opacity:1; transform: translateY(-2px); }
-    .social svg { width:22px; height:22px; display:block; }
-    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-  </style>
+  <meta name="color-scheme" content="dark light" />
+  <meta name="description" content="FaithBasedPilot.net — watch and listen. Official media hub for Faith Based Pilot on YouTube and Rumble." />
+  <link rel="stylesheet" href="assets/cockpit.css" />
 </head>
+<body class="cockpit" data-page="home">
+  <div class="cockpit-bg" aria-hidden="true"></div>
 
-<body>
-  <!-- ===== NAV BAR (.NET) ===== -->
-  <header class="site-header">
-    <div class="container-nav">
-      <nav class="site-nav">
+  <header class="hud-top">
+    <div class="hud-inner">
+      <a class="hud-brand" href="fbp.html">
+        <img src="images/fulllogo_transparent_nobuffer.png" width="36" height="36" alt="" />
+        <span class="hud-brand-text">
+          <small>Faith Based Pilot</small>
+          <span>Media hub · .net</span>
+        </span>
+      </a>
+      <nav class="hud-nav hud-nav--desktop" aria-label="Primary">
+        <a href="fbp.html">Home</a>
         <a href="youtube.html">YouTube</a>
         <a href="rumble.html">Rumble</a>
         <a href="https://faithbasedpilot.org" target="_blank" rel="noopener">Writings</a>
       </nav>
-      <img id="themeToggle" src="images/fulllogo_transparent_nobuffer.png" alt="Toggle Theme">
+      <div class="hud-actions">
+        <img id="themeToggle" src="images/fulllogo_transparent_nobuffer.png" alt="Toggle theme" />
+      </div>
     </div>
   </header>
-  <!-- ===== /NAV BAR ===== -->
 
-  <main class="container">
-    <h1>Faith Based Pilot (.net)</h1>
-    <p class="lead">Watch. Listen. Strengthen your faith.</p>
+  <main class="cockpit-main">
+    <div class="cockpit-panel">
+      <header class="cockpit-hero">
+        <p class="hud-tagline">Watch · Listen · Strengthen</p>
+        <h1>Faith Based Pilot</h1>
+        <div class="hud-horizon" aria-hidden="true"></div>
+        <p class="hud-sub">Glass-deck media hub — messages on faith and flight, without the noise.</p>
+      </header>
 
-    <!-- 1) WELCOME -->
-    <section id="welcome">
-      <p>
-        <strong>FaithBasedPilot.net</strong> is the official <em>watching and listening</em> site for Faith Based Pilot —
-        a focused place to experience messages on faith, and flight without distractions or algorithm noise.
-        This is where everything FBP publishes in video or audio form lives together — simple, clear, and direct.
-      </p>
-    </section>
+      <section id="welcome" class="content-section">
+        <p>
+          <strong>FaithBasedPilot.net</strong> is the official <em>watching and listening</em> site for Faith Based Pilot —
+          a focused place to experience messages on faith, and flight without distractions or algorithm clutter.
+          Everything FBP publishes in video or audio form lives here — simple, clear, and direct.
+        </p>
+      </section>
 
-    <!-- 2) WHY .NET vs .ORG -->
-    <section id="why-net">
-      <h2>Why This .NET Site Exists</h2>
-      <p>
-        The <strong>.net</strong> site was created as a dedicated media hub — a place to <em>watch</em> and <em>listen</em>.
-        Meanwhile, the <a class="link" href="https://faithbasedpilot.org" target="_blank" rel="noopener">FaithBasedPilot.org</a>
-        site focuses on written studies, resources, and long-form material. Separating the two makes both simpler and faster to navigate.
-      </p>
-      <div class="notice">
-        <strong>Quick guide:</strong>
-        <ul>
-          <li><strong>.net</strong> → watching & listening hub (videos, audio, series)</li>
-          <li><strong>.org</strong> → reading & research (articles, references, resources)</li>
-        </ul>
-      </div>
-    </section>
+      <section id="why-net" class="content-section">
+        <h2>Why this .net site exists</h2>
+        <p>
+          The <strong>.net</strong> site is a dedicated media hub — built to <em>watch</em> and <em>listen</em>.
+          The <a class="link" href="https://faithbasedpilot.org" target="_blank" rel="noopener">FaithBasedPilot.org</a>
+          site focuses on written studies, resources, and long-form material. Splitting the two keeps both fast and easy to navigate.
+        </p>
+        <div class="notice">
+          <strong>Quick guide:</strong>
+          <ul>
+            <li><strong>.net</strong> → watching &amp; listening (videos, series)</li>
+            <li><strong>.org</strong> → reading &amp; research (articles, resources)</li>
+          </ul>
+        </div>
+      </section>
 
-    <!-- 3) PLATFORMS -->
-    <section id="platforms">
-      <h2>YouTube & Rumble</h2>
-      <p>
-        Faith Based Pilot publishes on both <strong>YouTube</strong> and <strong>Rumble</strong>.
-        YouTube serves as the main platform for reach and visibility.
-        Rumble exists as a <strong>secure backup</strong> — ensuring every video remains available even if YouTube ever restricts content.
-        This dual setup keeps the message online, uncensored, and always accessible.
-      </p>
-    </section>
+      <section id="platforms" class="content-section">
+        <h2>YouTube &amp; Rumble</h2>
+        <p>
+          Faith Based Pilot publishes on both <strong>YouTube</strong> and <strong>Rumble</strong>.
+          YouTube is the main platform for reach. Rumble is a <strong>secure backup</strong> — so every video stays available even if YouTube ever restricts content.
+        </p>
+      </section>
 
-    <!-- 4) MISSION -->
-    <section id="mission">
-      <h2>Mission</h2>
-      <p>
-        Faith Based Pilot exists to encourage strength, discipline, and truth in everyday life — in the gym, in the cockpit,
-        and in the daily walk of faith. Each message aims to challenge the mind, build conviction, and show what living boldly in faith looks like.
-      </p>
-    </section>
+      <section id="mission" class="content-section">
+        <h2>Mission</h2>
+        <p>
+          Faith Based Pilot exists to encourage strength, discipline, and truth in everyday life — in the gym, in the cockpit,
+          and in the daily walk of faith. Each message aims to challenge the mind, build conviction, and show what living boldly in faith looks like.
+        </p>
+      </section>
+    </div>
   </main>
 
-  <!-- Footer with Social Icons -->
   <footer class="site-footer">
-    <nav class="social" aria-label="Social Links">
-      <!-- Instagram -->
+    <nav class="social" aria-label="Social links">
       <a href="https://www.instagram.com/faithbasedpilot/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
         <span class="sr-only">Instagram</span>
       </a>
-
-      <!-- Facebook -->
       <a href="https://www.facebook.com/profile.php?id=100093368342398" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M13 8h-1.2A2.8 2.8 0 0 0 9 10.8V19"/><path d="M10 13h3.2"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M13 8h-1.2A2.8 2.8 0 0 0 9 10.8V19"/><path d="M10 13h3.2"/></svg>
         <span class="sr-only">Facebook</span>
       </a>
-
-      <!-- X (Twitter) -->
       <a href="https://x.com/FaithBasedPilot" target="_blank" rel="noopener" aria-label="X (Twitter)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20"/></svg>
         <span class="sr-only">X (Twitter)</span>
       </a>
-
-      <!-- Truth Social -->
       <a href="https://truthsocial.com/@FaithBasedPilot" target="_blank" rel="noopener" aria-label="Truth Social">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 8h8M12 8v8"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 8h8M12 8v8"/></svg>
         <span class="sr-only">Truth Social</span>
       </a>
-
-      <!-- YouTube -->
-      <a href="https://www.youtube.com/@FaithBasedPilot" target="_blank" rel="noopener" aria-label="YouTube">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="4"/><path d="M11 10l4 2-4 2v-4z" fill="currentColor" stroke="none"/></svg>
+      <a href="https://www.youtube.com/@FaithBasedPilot" target="_blank" rel="noopener" aria-label="YouTube channel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="4"/><path d="M11 10l4 2-4 2v-4z" fill="currentColor" stroke="none"/></svg>
         <span class="sr-only">YouTube</span>
       </a>
-
-      <!-- Rumble -->
-      <a href="https://rumble.com/c/c-7796604" target="_blank" rel="noopener" aria-label="Rumble">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M10 9l5 3-5 3V9z" fill="currentColor" stroke="none"/></svg>
+      <a href="https://rumble.com/c/c-7796604" target="_blank" rel="noopener" aria-label="Rumble channel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M10 9l5 3-5 3V9z" fill="currentColor" stroke="none"/></svg>
         <span class="sr-only">Rumble</span>
       </a>
     </nav>
-
-    <div>© 2022 Faith Based Pilot — FaithBasedPilot.net</div>
+    <div>© <span id="year"></span> Faith Based Pilot — FaithBasedPilot.net</div>
   </footer>
 
-  <script>
-    (function () {
-      const body = document.body;
-      const toggleEl = document.getElementById('themeToggle');
+  <nav class="hud-bottom" aria-label="Mobile primary">
+    <div class="hud-bottom-inner">
+      <a class="hud-tab" href="fbp.html" data-nav="home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5z"/></svg>
+        <span class="label">Home</span>
+      </a>
+      <a class="hud-tab" href="youtube.html" data-nav="youtube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="3"/><path d="M11 10l4 2-4 2v-4z" fill="currentColor" stroke="none"/></svg>
+        <span class="label">YouTube</span>
+      </a>
+      <a class="hud-tab" href="rumble.html" data-nav="rumble">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3V9z" fill="currentColor" stroke="none"/></svg>
+        <span class="label">Rumble</span>
+      </a>
+      <a class="hud-tab hud-tab--ext" href="https://faithbasedpilot.org" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M12 7v6M9 10h6"/></svg>
+        <span class="label">Read</span>
+      </a>
+    </div>
+  </nav>
 
-      const saved = localStorage.getItem('theme');
-      if (saved === 'light') body.classList.add('light');
-
-      function toggleTheme() {
-        body.classList.toggle('light');
-        const mode = body.classList.contains('light') ? 'light' : 'dark';
-        localStorage.setItem('theme', mode);
-      }
-
-      toggleEl.addEventListener('click', toggleTheme);
-      toggleEl.setAttribute('role', 'button');
-      toggleEl.setAttribute('aria-label', 'Toggle color theme');
-      toggleEl.setAttribute('tabindex', '0');
-      toggleEl.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleTheme();
-        }
-      });
-    })();
-  </script>
+  <script src="assets/cockpit-nav.js"></script>
 </body>
 </html>
