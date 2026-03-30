@@ -1,0 +1,27 @@
+name: Update Latest Videos from YouTube & Rumble
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'     # Runs every Sunday at midnight UTC (once a week)
+  workflow_dispatch:        # Lets you run it manually anytime
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update README with latest videos
+        uses: gautamkrishnar/blog-post-workflow@v1
+        with:
+          feed_list: |
+            https://www.youtube.com/feeds/videos.xml?channel_id=UCFyM3oePGVXyU4fqZDuD1xQ
+            https://rss.app/feeds/d0gxUSEhmi1H5RJu.xml
+          max_post_count: 8                    # Show up to 8 newest videos total
+          readme_path: ./README.md
+          date_format: "MMMM d, yyyy"
+          template: |
+            <table><tr><td><a href="$url"><img width="280" src="https://img.youtube.com/vi/$videoId/maxresdefault.jpg" alt="$title"></a></td><td><strong><a href="$url">$title</a></strong><br><small>$date</small></td></tr></table>
