@@ -21,6 +21,7 @@ jobs:
             https://www.youtube.com/feeds/videos.xml?channel_id=UCFyM3oePGVXyU4fqZDuD1xQ
           max_post_count: 8
           readme_path: ./youtube.html
+          comment_tag_name: YOUTUBE-VIDEOS
           date_format: "MMMM d, yyyy"
           template: |
             <article class="card">
