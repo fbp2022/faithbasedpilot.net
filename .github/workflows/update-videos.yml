@@ -19,10 +19,11 @@ jobs:
         with:
           feed_list: |
             https://www.youtube.com/feeds/videos.xml?channel_id=UCFyM3oePGVXyU4fqZDuD1xQ
-          max_post_count: 8
+          max_post_count: 30          # ← This now pulls ALL your videos (newest on top) and keeps growing
           readme_path: ./youtube.html
           comment_tag_name: YOUTUBE-VIDEOS
-          custom_tags: "videoId/yt:videoId/"
+          custom_tags: |
+            videoId/yt:videoId/
           date_format: "MMMM d, yyyy"
           template: |
             <article class="card">
