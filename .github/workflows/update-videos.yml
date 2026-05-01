@@ -3,7 +3,7 @@ name: Update Latest Videos from YouTube
 on:
   schedule:
     - cron: '0 13 * * *'     # Runs once per day at 1:00 PM UTC
-  workflow_dispatch:         # Allows you to run it manually anytime
+  workflow_dispatch:         # Allows manual run
 
 jobs:
   update-videos:
@@ -14,13 +14,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Update with latest YouTube videos
+      - name: Update youtube.html with latest YouTube videos
         uses: gautamkrishnar/blog-post-workflow@v1
         with:
           feed_list: |
             https://www.youtube.com/feeds/videos.xml?channel_id=UCFyM3oePGVXyU4fqZDuD1xQ
           max_post_count: 8
-          readme_path: ./README.md
+          readme_path: ./youtube.html
           date_format: "MMMM d, yyyy"
           template: |
-            <table><tr><td><a href="$url"><img width="280" src="https://img.youtube.com/vi/$videoId/maxresdefault.jpg" alt="$title"></a></td><td><strong><a href="$url">$title</a></strong><br><small>$date</small></td></tr></table>
+            <article class="card">
+              <div class="vid-wrap">
+                <a href="$url" target="_blank" style="display:block">
+                  <img src="https://img.youtube.com/vi/$videoId/maxresdefault.jpg" alt="$title" style="width:100%; height:auto; border-radius:8px; display:block;">
+                </a>
+                <button type="button" class="share-fab" data-title="$title" data-embed="https://www.youtube.com/embed/$videoId?rel=0&modestbranding=1" aria-label="Share video" style="position:absolute; bottom:12px; right:12px; background:rgba(0,0,0,0.7); color:white; border:none; border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; cursor:pointer;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg>
+                </button>
+              </div>
+            </article>
