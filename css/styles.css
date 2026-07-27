@@ -137,6 +137,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .vid-wrap{position:relative;line-height:0}
 .vid-wrap img{width:100%;height:auto;display:block}
 .vid-wrap iframe{width:100%;aspect-ratio:16/9;height:auto;display:block;border:0}
+.vid-wrap--brand{aspect-ratio:16/9;background-color:var(--navy-900);background-image:radial-gradient(120% 120% at 50% 15%,rgba(22,53,83,.7),transparent 60%),url("../images/fulllogo_transparent_nobuffer.png");background-repeat:no-repeat,no-repeat;background-position:center,center;background-size:cover,30%}
 .share-fab{position:absolute;bottom:12px;right:12px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(11,28,46,.72);color:#fff;border:none;border-radius:50%;cursor:pointer;backdrop-filter:blur(4px);transition:background .18s ease,transform .18s ease}
 .share-fab:hover{background:var(--gold);color:var(--navy-900);transform:scale(1.06)}
 .share-fab svg{width:18px;height:18px}

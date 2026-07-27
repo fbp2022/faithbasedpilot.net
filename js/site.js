@@ -60,12 +60,31 @@
     });
   });
 
-  /* YouTube thumbnail fallback: maxresdefault may not exist for every video */
+  /* YouTube thumbnails.
+     Not every video has a maxresdefault image. When it's missing, YouTube
+     doesn't 404 — it serves a 120x90 grey "no thumbnail" placeholder with a
+     200 status, so a plain onerror handler never fires. We detect that grey
+     placeholder by its size on load and step down to a quality that always
+     exists (sd -> hq -> mq). If somehow nothing works, show a branded panel. */
+  var YT_STEPS = ["maxresdefault", "sddefault", "hqdefault", "mqdefault"];
   document.querySelectorAll('.vid-wrap img[src*="img.youtube.com"]').forEach(function (img) {
-    img.addEventListener("error", function onErr() {
-      if (img.src.indexOf("maxresdefault") !== -1) img.src = img.src.replace("maxresdefault", "hqdefault");
-      else if (img.src.indexOf("hqdefault") !== -1) img.src = img.src.replace("hqdefault", "sddefault");
-      else img.removeEventListener("error", onErr);
-    });
+    function stepDown() {
+      var m = img.src.match(/\/(\w+default)\.jpg/);
+      var cur = m ? m[1] : "";
+      var i = YT_STEPS.indexOf(cur);
+      if (i > -1 && i < YT_STEPS.length - 1) { img.src = img.src.replace(cur + ".jpg", YT_STEPS[i + 1] + ".jpg"); return true; }
+      return false;
+    }
+    function brand() {
+      var wrap = img.closest(".vid-wrap");
+      if (wrap) { wrap.classList.add("vid-wrap--brand"); img.style.display = "none"; }
+    }
+    function check() {
+      // 120px wide == YouTube's grey "no thumbnail" placeholder
+      if (img.naturalWidth && img.naturalWidth <= 120) { if (!stepDown()) brand(); }
+    }
+    img.addEventListener("load", check);
+    img.addEventListener("error", function () { if (!stepDown()) brand(); });
+    if (img.complete && img.naturalWidth) check();
   });
 })();
