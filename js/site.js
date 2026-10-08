@@ -12,6 +12,18 @@
     el.textContent = new Date().getFullYear();
   });
 
+  /* ---------- ATC (site admin) link in the footer ---------- */
+  document.querySelectorAll(".footer-bottom p").forEach(function (p) {
+    if (p.querySelector('a[href^="https://atc.faithbasedpilot.org"]')) return;
+    var a = document.createElement("a");
+    a.href = "https://atc.faithbasedpilot.org/";
+    a.textContent = "ATC";
+    a.title = "Site admin";
+    a.rel = "nofollow";
+    p.appendChild(document.createTextNode(" · "));
+    p.appendChild(a);
+  });
+
   /* Mobile nav drawer */
   (function nav() {
     var toggle = document.querySelector("[data-nav-toggle]");
